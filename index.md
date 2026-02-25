@@ -10,24 +10,24 @@ description: Bay Area Burners Without Borders chapter homepage
         <p class="eyebrow">Bay Area Chapter</p>
         <h1 id="home-title">Burners Without Borders SF Bay Area</h1>
         <p>
-          A local network for mutual aid, neighborhood-scale civic projects, and rapid community response.
-          This site is the chapter home for updates, field notes, and opportunities to participate.
+          A local network for mutual aid, community development projects, and rapid response to neighborhood needs. This site is the chapter home for updates, field notes, and opportunities to participate.
         </p>
         <ul class="pill-list" aria-label="Focus areas">
           <li>Mutual Aid</li>
-          <li>Civic Projects</li>
-          <li>Neighborhood Response</li>
-          <li>Volunteer Coordination</li>
+          <li>Community Development Projects</li>
+          <li>Disaster Preparation</li>
+          <li>Disaster Response</li>
         </ul>
       </div>
 
-      <aside class="hero-panel" aria-labelledby="next-up-title">
-        <h2 id="next-up-title">Get Started</h2>
-        <p>
-          Use the blog for chapter updates, project announcements, and after-action notes. The homepage
-          automatically shows recent posts.
-        </p>
-        <a class="button-link" href="{{ '/blog/' | relative_url }}">Read Chapter Updates</a>
+      <aside class="hero-panel hero-logo-panel" aria-label="Burners Without Borders SF Bay Area logo">
+        <img
+          class="hero-logo"
+          src="{{ '/assets/images/bwbsf.jpg' | relative_url }}"
+          alt="Burners Without Borders SF Bay Area logo"
+          loading="eager"
+          decoding="async"
+        >
       </aside>
     </div>
   </section>

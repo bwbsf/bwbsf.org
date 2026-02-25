@@ -272,6 +272,25 @@ a:focus-visible {
   padding: 1rem;
 }
 
+.hero-logo-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  min-height: 100%;
+}
+
+.hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(164, 177, 200, 0.16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  object-fit: cover;
+}
+
 .hero-panel h2 {
   font-size: 1.05rem;
   margin-bottom: 0.6rem;
@@ -502,6 +521,10 @@ hr {
   .page-body,
   .post-header {
     padding: 0.95rem;
+  }
+
+  .hero-logo-panel {
+    padding: 0.65rem;
   }
 
   .footer-meta {
