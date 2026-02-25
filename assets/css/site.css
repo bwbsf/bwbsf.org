@@ -282,13 +282,15 @@ a:focus-visible {
 
 .hero-logo {
   display: block;
-  width: 100%;
-  max-width: 360px;
+  width: min(100%, 220px);
+  max-width: 220px;
   height: auto;
+  max-height: 220px;
   border-radius: 12px;
   border: 1px solid rgba(164, 177, 200, 0.16);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(6, 9, 15, 0.35);
 }
 
 .hero-panel h2 {
@@ -525,6 +527,12 @@ hr {
 
   .hero-logo-panel {
     padding: 0.65rem;
+  }
+
+  .hero-logo {
+    width: min(100%, 180px);
+    max-width: 180px;
+    max-height: 180px;
   }
 
   .footer-meta {
