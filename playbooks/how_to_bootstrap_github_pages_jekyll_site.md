@@ -7,13 +7,13 @@ Create a GitHub Pages-compatible Jekyll site skeleton with shared layouts/includ
 
 ## Prerequisites
 * A git repository initialized for the website.
-* `README.md` and `AGENTS.md` available and readable.
+* `README.md` and `./agents/RULES.md` available and readable.
 * User approval for an explicit file-by-file plan before edits.
 
 ## Step-by-Step Instructions
 
 1. **Gather Context and Existing Policy**
-   * Read `AGENTS.md` and `README.md`.
+   * Read `AGENTS.md`, `./agents/RULES.md`, and `README.md`.
    * Review `playbooks/` for an existing site bootstrap workflow before creating a new one.
    * If no exact playbook exists, create one first using `playbooks/how_to_create_a_new_playbook.md`.
 
@@ -56,7 +56,7 @@ Create a GitHub Pages-compatible Jekyll site skeleton with shared layouts/includ
      * Local preview workflow
      * Site structure and where content lives
      * Shared template/include locations
-   * Update `AGENTS.md` if playbooks were added/renamed.
+   * Update host shim files only if canonical policy path or shim behavior changes.
 
 6. **Verify**
    * Perform a static structure review (required).
@@ -77,13 +77,12 @@ Create a GitHub Pages-compatible Jekyll site skeleton with shared layouts/includ
 * Jekyll file structure exists and is internally consistent.
 * Homepage and `/blog/` page both render post listings via Jekyll loops.
 * `README.md` documents devops/publishing and project organization.
-* `AGENTS.md` playbook index includes the new bootstrap workflow(s).
+* Playbook additions/removals are reflected in host-managed workflow docs.
 
 ## Lifecycle Compliance
-Prompt -> Plan (based on a known playbook) -> Request approval -> Execute -> Plan/playbook update -> Docs update -> Verification.
+Prompt -> Select/Create Plan (using relevant playbook guidance) -> Request approval -> Execute approved plan atoms -> Plan update -> Docs update -> Verification.
 
 If inside a git repo:
 * Review `git status` and diffs
 * Suggest a commit message
-* Commit after completion
-* First law of vibe coding: commit after every completed change
+* Commit after approved checkpoint completion

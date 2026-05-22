@@ -10,12 +10,12 @@ This playbook outlines the standard procedure for an AI Agent to create a new op
 
 1.  **Read the Root Documentation**:
     *   `README.md`: Understand the project's high-level architecture and goals.
-    *   `AGENTS.md`: Understand the organizational structure, API standards, and the role of agents.
+    *   `RULES.md`: Understand the organizational structure, API standards, and the role of agents.
 2.  **Read Component Documentation (If Present)**:
     *   Relevant module or subsystem READMEs (e.g., `/docs`, `/services`, `/modules`, `/platform`).
     *   Any architecture or integration notes that affect the task.
 3.  **Verify Current State**:
-    *   Check `playbooks/` to ensure a similar playbook does not already exist.
+    *   Check `./playbooks/` to ensure a similar playbook does not already exist.
 
 ## 2. When to Create a Playbook
 
@@ -57,14 +57,17 @@ A 1-sentence summary of what this playbook achieves.
 ## Verification
 How to confirm the task was successful.
 
+## Plan Binding
+How this playbook generates, selects, or constrains the active execution plan.
+
 ## Lifecycle Compliance
 Confirm the workflow follows the required cycle:
-Prompt -> Plan (based on a known playbook) -> Request approval -> Execute -> Plan/playbook update -> Docs update -> Verification.
+Prompt -> Select/Create Plan (using relevant playbook guidance) -> Request approval -> Execute approved plan atoms -> Plan update -> Docs update -> Verification.
 
 If this occurs inside a git repo:
 * Review `git status` and relevant diffs.
 * Suggest a commit message that summarizes the completed task.
-* Commit after completion.
+* Commit after approved checkpoint completion.
 ```
 
 ## 4. Writing Guidelines
@@ -73,10 +76,15 @@ If this occurs inside a git repo:
 *   **Anticipate Failure**: If a step is prone to error (like network timeouts), provide a specific remediation sub-step.
 *   **Code-First**: Where possible, reference specific scripts in the repo rather than writing long manual terminal commands.
 *   **Idempotency**: Playbooks should ideally be repeatable without breaking the system.
-*   **Lifecycle Alignment**: Include the lifecycle compliance block so agents always follow plan/approval/update/verify and commit after completion.
+*   **Plan Authority**: Every new playbook must explicitly state how it binds execution to approved active plan checklist items.
+*   **Lifecycle Alignment**: Include the lifecycle compliance block so agents always follow plan/approval/update/verify and commit after approved checkpoint completion.
 
 ## 5. Finalizing
 
-1.  Save the file to `playbooks/`.
-2.  If this is a major workflow, mention it in `AGENTS.md` under the "Agent Playbooks" section.
-3.  If in a git repo, check status/diff and suggest a commit message. Commit after completion.
+1.  Save the file to `./playbooks/`.
+2.  Update `RULES.md` under the "Agent Playbooks" section with the new, removed, or renamed playbook entry and a brief description (required for every playbook change).
+3.  Update `README.md` if the new playbook changes any structure or workflow inventory that the README documents.
+4.  Verify the `RULES.md` playbook index matches the actual contents of `./playbooks/`.
+5.  Append today's journal repo work log entry summarizing the playbook change and rationale.
+6.  If in a git repo, check status/diff and suggest a commit message. Commit after approved checkpoint completion.
+

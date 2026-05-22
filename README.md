@@ -2,6 +2,48 @@
 
 Website source for the Bay Area chapter of Burners Without Borders, published via GitHub Pages.
 
+This repository includes an `agents/` git submodule that provides a plan-governed agent workflow framework for operational policy and reusable playbooks.
+
+## Agent Framework Integration
+
+Canonical policy source from host root:
+
+* `./agents/RULES.md`
+
+Root instruction shims:
+
+* `AGENTS.md`
+* `GEMINI.md`
+* `CODEX.md`
+* `CLAUDE.md`
+* `OPENCODE.md`
+
+Host-managed framework working copies (runtime-active in this repo):
+
+* `playbooks/`
+* `references/`
+* `templates/`
+* `scripts/`
+
+Host-owned runtime state directories:
+
+* `plans/future/`, `plans/current/`, `plans/past/`
+* `journal/`
+* `kanban/`
+* `downtime/reports/pending/`, `downtime/reports/reviewed/`
+
+Plan index command from host root:
+
+```powershell
+python agents/scripts/regenerate_plan_indexes.py --repo-root .
+```
+
+Verification command:
+
+```powershell
+python agents/scripts/regenerate_plan_indexes.py --check --repo-root .
+```
+
 ## Stack and Publishing Model
 
 This repository uses a GitHub Pages-compatible Jekyll structure:
@@ -105,13 +147,27 @@ Current top-level structure (relevant to site development):
 * `_includes/` - shared template fragments (header/footer)
 * `_layouts/` - page/post/default layouts
 * `_posts/` - blog posts
+* `.gitmodules` - git submodule configuration
+* `AGENTS.md` - host shim pointing to canonical policy in `./agents/RULES.md`
+* `CLAUDE.md` - host shim for Claude runtimes
+* `CODEX.md` - host shim for Codex runtimes
+* `GEMINI.md` - host shim for Gemini runtimes
+* `OPENCODE.md` - host shim for OpenCode runtimes
+* `agents/` - upstream framework submodule (canonical policy and upstream source artifacts)
 * `assets/css/` - site styles
 * `blog/` - blog landing page
+* `docs/` - host copies of framework supplemental docs (assimilation and migration references)
+* `downtime/` - downtime tasks and report folders for analysis-only framework maintenance
 * `index.md` - homepage
-* `playbooks/` - agent operational workflows
-* `AGENTS.md` - repo operating rules and playbook index
+* `journal/` - daily operational journal entries
+* `kanban/` - task boards for current and future work
+* `plans/` - active/future/past execution plans and generated indexes
+* `playbooks/` - host-managed operational workflows (framework defaults plus site-specific workflows)
+* `references/` - reusable guidance used across playbooks and prompts
+* `scripts/` - host-managed utility scripts used by framework workflows
+* `templates/` - reusable output templates for plans, reports, and proposals
 
 ## Notes
 
 * This is currently a static site with no client-side JavaScript modules.
-* If JavaScript or backend scripts are added later, include appropriate logging/debugging hooks per `AGENTS.md`.
+* If JavaScript or backend scripts are added later, include appropriate logging/debugging hooks per `./agents/RULES.md`.

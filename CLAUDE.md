@@ -1,4 +1,4 @@
-# AGENTS Instructions
+# CLAUDE Instructions
 
 Read `./agents/RULES.md` in its entirety before doing anything in this repository. Follow all instructions in `./agents/RULES.md` as though they are written directly in this file. Do not proceed if you have not read and understood `./agents/RULES.md`.
 

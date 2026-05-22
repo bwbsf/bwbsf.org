@@ -13,7 +13,7 @@ Provide a repeatable workflow for editing site pages and blog posts in the Jekyl
 ## Step-by-Step Instructions
 
 1. **Read Relevant Context**
-   * Read `AGENTS.md` and `README.md`.
+   * Read `AGENTS.md`, `./agents/RULES.md`, and `README.md`.
    * Identify whether the task is:
      * A content-only page/post update
      * A layout/include change affecting multiple pages
@@ -46,7 +46,7 @@ Provide a repeatable workflow for editing site pages and blog posts in the Jekyl
      * Site structure changes
      * Publishing/local preview workflow changes
      * New directories/files become part of the standard workflow
-   * Update `AGENTS.md` if playbook inventory changes.
+   * Update host shim files only if canonical policy path or shim behavior changes.
    * Update playbooks if the workflow itself changes.
 
 6. **Verify**
@@ -66,10 +66,9 @@ Provide a repeatable workflow for editing site pages and blog posts in the Jekyl
 * Docs are updated if structure/workflow changed.
 
 ## Lifecycle Compliance
-Prompt -> Plan (based on a known playbook) -> Request approval -> Execute -> Plan/playbook update -> Docs update -> Verification.
+Prompt -> Select/Create Plan (using relevant playbook guidance) -> Request approval -> Execute approved plan atoms -> Plan update -> Docs update -> Verification.
 
 If inside a git repo:
 * Review `git status` and diffs
 * Suggest a commit message
-* Commit after completion
-* First law of vibe coding: commit after every completed change
+* Commit after approved checkpoint completion

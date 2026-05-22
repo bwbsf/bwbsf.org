@@ -86,6 +86,8 @@ Classify the failure into one of these buckets (pick the best match):
 
    * Files to change
    * Lines/sections to touch
+   * Active plan checklist item(s) this fix maps to
+   * Required plan revision items if no existing checklist item covers the fix
    * Any doc/playbook updates required
 
 ### 7) Plan & Request Approval (Required)
@@ -97,6 +99,7 @@ Before implementing:
    * Evidence summary (diff + error)
    * Hypotheses tested and outcomes
    * Proposed fix (minimal)
+   * Plan mapping (existing checklist items or proposed plan revision)
    * Verification plan
    * Docs/playbook updates
 2. Ask for explicit approval to proceed.
@@ -104,8 +107,10 @@ Before implementing:
 ### 8) Execute the Fix (After Approval)
 
 1. Apply the minimal change.
-2. Add/adjust logging if it helps future diagnosis (do not spam).
-3. Keep the change atomic.
+2. Execute only approved fix scope bound to active plan checklist items.
+3. If additional unplanned work is required, pause and request plan-revision approval.
+4. Add/adjust logging if it helps future diagnosis (do not spam).
+5. Keep the change atomic.
 
 ### 9) Verify
 
@@ -123,7 +128,7 @@ Before implementing:
 1. Update documentation where future-you will see it first:
 
    * `README.md` if behavior/usage changed
-   * `AGENTS.md` if this is a new operational rule
+   * `RULES.md` if this is a new operational rule
    * Add/update a playbook note if this is a recurring pitfall
 2. Update the task plan or playbook if new steps were discovered or the workflow changed.
 3. Add a short **"Known Failure Mode"** note:
@@ -132,6 +137,7 @@ Before implementing:
    * Cause
    * Fix
    * How to detect early
+4. Append today's journal repo work log entry summarizing the fix and reason before commit.
 
 ### 11) Git Hygiene (If in a git repo)
 
@@ -139,8 +145,8 @@ Follow the commit playbook:
 
 * Check status/diff
 * Suggest a commit message
-* Commit after completion
-* First law of vibe coding: commit after every completed change
+* Commit after approved checkpoint completion
+* First law of vibe coding: commit after every approved completed checkpoint
 
 ## Verification
 
@@ -150,11 +156,12 @@ Follow the commit playbook:
 
 ## Lifecycle Compliance
 
-Prompt -> Plan (based on a known playbook) -> Request approval -> Execute -> Plan/playbook update -> Docs update -> Verification.
+Prompt -> Select/Create Plan (using relevant playbook guidance) -> Request approval -> Execute approved plan atoms -> Plan update -> Docs update -> Verification.
 
 If inside a git repo:
 
 * Review `git status` and diffs
+* Ensure today's journal repo work log is updated for the change
 * Suggest a commit message
-* Commit after completion
-* First law of vibe coding: commit after every completed change
+* Commit after approved checkpoint completion
+* First law of vibe coding: commit after every approved completed checkpoint

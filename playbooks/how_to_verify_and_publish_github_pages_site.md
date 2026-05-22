@@ -13,7 +13,7 @@ Verify a Jekyll site changeset and publish it through GitHub Pages using a safe,
 ## Step-by-Step Instructions
 
 1. **Confirm Scope and Plan**
-   * Read `AGENTS.md` and `README.md`.
+   * Read `AGENTS.md`, `./agents/RULES.md`, and `README.md`.
    * Confirm the changes being published are complete, including documentation updates.
    * If workflow gaps are discovered, update/create a playbook first.
 
@@ -59,10 +59,9 @@ Verify a Jekyll site changeset and publish it through GitHub Pages using a safe,
 * Public site is reachable and reflects the latest content.
 
 ## Lifecycle Compliance
-Prompt -> Plan (based on a known playbook) -> Request approval -> Execute -> Plan/playbook update -> Docs update -> Verification.
+Prompt -> Select/Create Plan (using relevant playbook guidance) -> Request approval -> Execute approved plan atoms -> Plan update -> Docs update -> Verification.
 
 If inside a git repo:
 * Review `git status` and diffs
 * Suggest a commit message
-* Commit after completion
-* First law of vibe coding: commit after every completed change
+* Commit after approved checkpoint completion
