@@ -66,6 +66,11 @@ a:focus-visible {
   border-radius: 4px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
